@@ -23,6 +23,9 @@ export GSH_ROOT="$(dirname "$0")"
 . "$GSH_ROOT/lib/profile.sh"
 # shellcheck source=lib/mission_source.sh
 . "$GSH_ROOT/lib/mission_source.sh"
+# shellcheck source=lib/api.sh
+. "$GSH_ROOT/lib/api.sh"
+export GSH_API_URL="https://api.gameshell.org"
 
 display_help() {
   cat "$(eval_gettext "\$GSH_ROOT/i18n/start-help/en.txt")"
@@ -33,7 +36,7 @@ display_help() {
 export GSH_SAVEFILE_MODE="simple"
 export GSH_AUTOSAVE=1
 export GSH_COLOR="OK"
-GSH_MODE="ANONYMOUS"
+GSH_MODE="PASSPORT"
 # if GSH_NO_GETTEXT is non-empty, gettext won't be used anywhere, the only language will thus be English
 # export GSH_NO_GETTEXT=1  # DO NOT CHANGE OR REMOVE THIS LINE, it is used by utils/archive.sh
 RESET=""
@@ -171,7 +174,38 @@ _passport() {
     printf "$(gettext "Player's email:") "
     read -r EMAIL
   done
+
+  SESSION_ID=""
+  while [ -z "$SESSION_ID" ]
+  do
+    printf "$(gettext "API session (⚠️ case sensitive):") "
+    read -r SESSION_ID
+
+    # Call the function with a session ID
+    result=$(_gsh_api_get_session "$SESSION_ID")
+
+    # Check the exit status of the function
+    if [ $? -ne 0 ]; then
+      printf "$(gettext "This session does not exist, please retry!")"
+      echo
+      SESSION_ID=""
+    fi
+  done
+
+  ROOMS=$(_gsh_api_get_rooms "$SESSION_ID")
+
+  PS3="$(gettext "API room:") "
+  select ROOM in $ROOMS
+  do
+      echo "$(gettext "Your room:") $ROOM"
+      break
+  done
+
   echo "  $NOM <$EMAIL>" > "$PASSPORT"
+  echo "  $SESSION_ID" >> "$PASSPORT"
+  echo "  $ROOM" >> "$PASSPORT"
+
+  _gsh_api_create_player "$SESSION_ID" "$ROOM" "$NOM" "$EMAIL"
 }
 
 _confirm_passport() {

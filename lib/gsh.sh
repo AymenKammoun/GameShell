@@ -19,6 +19,10 @@
 # shellcheck source=lib/mission_source.sh
 . "$GSH_LIB/mission_source.sh"
 
+# shellcheck source=lib/api.sh
+. "$GSH_ROOT/lib/api.sh"
+export GSH_API_URL="https://api.gameshell.org"
+
 trap '_gsh_exit EXIT $?' EXIT
 trap '_gsh_exit TERM 15' TERM
 trap '_gsh_exit HUP --force 2' HUP
@@ -382,6 +386,14 @@ _gsh_check() {
     echo
     color_echo green "$(eval_gettext 'Congratulations, mission $MISSION_NB has been successfully completed!')"
     echo
+
+    _gsh_api_update_player "$GSH_CONFIG/passport.txt" "$MISSION_NB"
+    # Check the exit status of the function
+    if [ $? -eq 0 ]; then
+        color_echo green "$(gettext 'Your game progress has been successfully saved online.')"
+    else
+        color_echo red "$(gettext 'Your game progress could not be saved online.')"
+    fi
 
     if [ -f "$MISSION_DIR/treasure.sh" ]
     then

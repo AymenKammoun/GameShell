@@ -310,3 +310,18 @@ msgstr  "utilisez 'gsh help' pour obtenir une liste de commandes possibles"
 # abbreviation for "yes" (lowercase)
 msgid   "y"
 msgstr  "o"
+
+msgid   "Your game progress has been successfully saved online."
+msgstr  "Votre progression dans le jeu a été sauvegardée avec succès en ligne."
+
+msgid   "Your game progress could not be saved online."
+msgstr  "Votre progression dans le jeu n'a pas pu être sauvegardée en ligne."
+
+msgid   "API session (⚠️ case sensitive):"
+msgstr  "Session API (⚠️ sensible à la casse) :"
+
+msgid   "This session does not exist, please retry!"
+msgstr  "Cette session n'existe pas, veuillez réessayer !"
+
+msgid   "Your room:"
+msgstr  "Votre salle :"
