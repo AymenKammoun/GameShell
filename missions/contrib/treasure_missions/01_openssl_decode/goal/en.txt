@@ -1,0 +1,11 @@
+Mission goal
+============
+
+An encrypted chest is located inside the Throne Room's Safe, access its content using the password.
+Decrypt it into a file named "treasure_chest.txt"
+
+Useful commands
+===============
+
+openssl
+symmetric encryption algorithm used to encrypt the file: AES with CBC mode (AES-256-CBC)

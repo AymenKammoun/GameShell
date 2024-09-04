@@ -1,0 +1,11 @@
+Objectif
+========
+
+Un coffre chiffré se trouve dans le Coffre fort de la Salle du trone, accèdez à son contenu en utilisant le mot de passe.
+Le déchiffrer dans un fichier "coffre_au_tresor.txt"
+
+Commandes utiles
+================
+
+openssl
+algorithme de chiffrement symétrique utilisé pour chiffrer le fichier : AES avec un mode de chiffrement CBC (AES-256-CBC)

@@ -1,0 +1,14 @@
+Mission goal
+============
+Which species have been added to the garden?
+
+When you have it, run the command ``gsh check``.
+
+The expected response should be in the form of a list:
+"plant 1, plant 2, plant 3"
+sorted alphabetically.
+
+Useful commands
+===============
+
+diff FILE1 FILE2

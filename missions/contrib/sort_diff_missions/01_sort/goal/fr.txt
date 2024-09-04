@@ -1,0 +1,15 @@
+Objectif
+========
+
+Afin de répertorier les différentes espèces 
+du Jardin des fleurs, 
+les jardiniers ont réalisé un nouvel inventaire du jardin.
+
+Triez dans des nouveaux fichiers nommés 
+fichiers "tri_ancien" et "tri_nouveau" ces inventaires.
+
+
+Commandes utiles
+================
+
+sort FICHIER

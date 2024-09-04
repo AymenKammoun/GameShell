@@ -1,0 +1,13 @@
+Objectif
+========
+
+La princesse, écrit une lettre à son père depuis l'antre du dragon. 
+Pour que celle-ci ne soit interceptée, elle mélange des lettres et des chiffres.
+
+Le roi reçoit cette lettre dans la Salle du trone, 
+Pouvez-vous la rendre lisible en supprimant tout ces chiffres ?
+
+Commandes utiles
+================
+
+sed REGEX FICHIER
