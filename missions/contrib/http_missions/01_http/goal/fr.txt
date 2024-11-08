@@ -1,0 +1,12 @@
+Objectif
+========
+
+Un mage renégat a caché des connaissances interdites à l'intérieur de la Citadelle de l'Index, une forteresse mystique remplie de secrets et de sorts anciens.
+
+Un parchemin dissimulé dans les murs extérieurs de la citadelle contient les premiers indices pour contourner les barrières mystiques. Utilisez votre sortilège d'invocation pour récupérer la page.
+
+Commandes utiles
+================
+
+curl http://<hôte>/index.php
+    Récupère le contenu HTML de la page index.

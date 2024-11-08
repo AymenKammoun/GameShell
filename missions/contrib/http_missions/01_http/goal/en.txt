@@ -1,0 +1,12 @@
+Mission goal
+============
+
+A rogue mage has hidden forbidden knowledge inside the Citadel of the Index, a mystical stronghold of secrets and ancient spells.
+
+A scroll hidden in the citadel’s outer walls contains the first clues to bypassing the mystical barriers. Use your summoning spell to retrieve the page.
+
+Useful commands
+==============
+
+curl http://<host>/index.php
+    Retrieves the HTML content of the index page.
