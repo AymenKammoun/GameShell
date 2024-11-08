@@ -7,4 +7,5 @@
 #
 # Since it is sourced, it may define environment variables if you really need
 # them, but it should "unset" any local variable it has created.
-mkdir -p "$(eval_gettext '$GSH_HOME/Castle/Main_building/Library/Throne_room')"
+mkdir -p "$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe')"
+mkdir -p "$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Kings_quarter')"

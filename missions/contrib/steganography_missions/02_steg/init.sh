@@ -18,38 +18,32 @@
 #
 # It typically looks like
 _mission_init() {
+    
 
-  parchment=$(eval_gettext '$GSH_HOME/Castle/Main_building/Library/Merlin_s_office/Drawer')/$(gettext "parchment")
-  cat $MISSION_DIR/ascii-art/parchment.txt > $parchment
-
-  # Get a random 4 digits number
-  k=$(printf "%04d" "$(($(RANDOM) % 10000))")
-  echo $k > "$GSH_TMP/digits.txt"
-
-  # Get the messages for the server
-  m1="$(gettext "Thank you for connecting! Do you wish to enter? [Y/n]")"
-  m2="$(gettext "Goodbye!")"
-
-  # run the server at 127.0.0.1:8585
-  python3 $MISSION_DIR/data/script_server <(sed "s/KEY7/$k/" "$MISSION_DIR/ascii-art/potions.txt") "$m1" "$m2" >/dev/null &
-}
-_mission_init
-
-_mission_init() {
-    # Select random name from list
+    # Select random name and passphrase
     NAMES_FILE="$MISSION_DIR/data/names.txt"
+    PHRASES_FILE="$MISSION_DIR/data/passphrases.txt"
     RANDOM_NAME=$(shuf -n 1 "$NAMES_FILE")
+    RANDOM_PHRASE=$(shuf -n 1 "$PHRASES_FILE")
     
-    # Save the name for checking later
+    # Save the name and passphrase for checking later
     echo "$RANDOM_NAME" > "$GSH_TMP/traitor_name.txt"
+    echo "$RANDOM_PHRASE" > "$GSH_TMP/passphrase.txt"
     
-    # Create temporary message file
-    echo "The traitor's name is: $RANDOM_NAME" > "$GSH_TMP/secret_message.txt"
+    # Create secret message
+    echo "The second traitor's name is: $RANDOM_NAME" > "$GSH_TMP/secret_message.txt"
     
-    # Copy base image to throne room
-    cp "$MISSION_DIR/ascii-art/king-portrait.jpg" "$(eval_gettext '$GSH_HOME/Castle/Throne_room/mysterious_painting.jpg')"
+    # Create protected note with passphrase in the safe
+    NOTE_PATH="$(eval_gettext '$GSH_HOME/Castle/Throne_room/Safe/secret_note.txt')"
+    echo "Passphrase for the painting: $RANDOM_PHRASE" > "$NOTE_PATH"
+    # Remove read permissions
+    chmod 000 "$NOTE_PATH"
     
-    # Hide message in image (empty passphrase for simplicity)
-    steghide embed -cf "$(eval_gettext '$GSH_HOME/Castle/Throne_room/mysterious_painting.jpg')" -ef "$GSH_TMP/secret_message.txt" -p "Tra1t0r" -q
+    # Copy new painting to throne room
+    PAINTING_PATH="$(eval_gettext '$GSH_HOME/Castle/Throne_room/king_portait.jpg')"
+    cp "$MISSION_DIR/ascii-art/painting.jpg" "$PAINTING_PATH"
+    
+    # Hide message in image with passphrase
+    steghide embed -cf "$PAINTING_PATH" -ef "$GSH_TMP/secret_message.txt" -p "$RANDOM_PHRASE" -q
 }
 _mission_init

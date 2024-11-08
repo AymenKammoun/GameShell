@@ -14,7 +14,7 @@ _mission_check() {
     correct_name=$(cat "$GSH_TMP/traitor_name.txt")
     
     while true; do
-        printf "$(gettext "What is the name of the traitor? ")"
+        printf "$(gettext "What is the name of the second traitor? ")"
         read -r answer
         
         if [ -z "$answer" ]; then
@@ -25,7 +25,7 @@ _mission_check() {
         if [ "$answer" = "$correct_name" ]; then
             return 0
         else
-            echo "$(gettext "That's not the correct name!")"
+            echo "$(gettext "That's not the correct name! Are you sure you used the correct passphrase?")"
             return 1
         fi
     done

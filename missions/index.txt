@@ -1,4 +1,4 @@
-contrib/index.txt 
+contrib/index.txt
 basic/index.txt
 misc/01_cal_nostradamus
 intermediate/01_alias_la

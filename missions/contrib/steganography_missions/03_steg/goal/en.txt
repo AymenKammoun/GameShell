@@ -1,12 +1,17 @@
 Mission goal
 ============
 
-A spy of the king discovered the identity of a traitor who attempted to poison His Majesty. 
-To protect this sensitive information, the spy hid the traitor's name inside a painting in 
-the throne room.
-The spy indicated to the king that the passphrase is "Tra1t0r".
+The king's spy has become increasingly paranoid. This time, he has hidden his 
+message using multiple layers of encoding, and to make matters worse, he has 
+placed several paintings in the throne room to confuse potential enemies.
 
-Your mission is to find the traitor's name hidden in the painting.
+A note in the king's safe provides a cryptic hint about the passphrase...
+
+Your mission:
+1. Find which painting contains the hidden message
+2. Decode the passphrase using the hint in the safe
+3. Extract and decode the hidden message
+4. Place the decoded message in a file named "revealed.txt" in the king's safe
 
 Useful commands
 ==============
@@ -20,3 +25,11 @@ COMMANDE &
 steghide extract -sf FILE -p PASSPHRASE
     Extracts hidden data from FILE using the PASSPHRASE used to initally embed the data 
     inside the FILE.
+
+echo MESSAGE | base64
+    Encodes the message string in base64 format
+    add -d to decode the hex encoded message
+
+echo MESSAGE | xxd -p
+    Encodes the message string in hex format
+    add -r to decode the hex encoded message

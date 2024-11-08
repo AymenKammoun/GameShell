@@ -18,38 +18,33 @@
 #
 # It typically looks like
 _mission_init() {
-
-  parchment=$(eval_gettext '$GSH_HOME/Castle/Main_building/Library/Merlin_s_office/Drawer')/$(gettext "parchment")
-  cat $MISSION_DIR/ascii-art/parchment.txt > $parchment
-
-  # Get a random 4 digits number
-  k=$(printf "%04d" "$(($(RANDOM) % 10000))")
-  echo $k > "$GSH_TMP/digits.txt"
-
-  # Get the messages for the server
-  m1="$(gettext "Thank you for connecting! Do you wish to enter? [Y/n]")"
-  m2="$(gettext "Goodbye!")"
-
-  # run the server at 127.0.0.1:8585
-  python3 $MISSION_DIR/data/script_server <(sed "s/KEY7/$k/" "$MISSION_DIR/ascii-art/potions.txt") "$m1" "$m2" >/dev/null &
-}
-_mission_init
-
-_mission_init() {
-    # Select random name from list
+  # Select random name and passphrase
     NAMES_FILE="$MISSION_DIR/data/names.txt"
+    PHRASES_FILE="$MISSION_DIR/data/phrases.txt"
     RANDOM_NAME=$(shuf -n 1 "$NAMES_FILE")
-    
-    # Save the name for checking later
+    RANDOM_PHRASE=$(shuf -n 1 "$PHRASES_FILE")
+
+  # Save for checking later
     echo "$RANDOM_NAME" > "$GSH_TMP/traitor_name.txt"
+    echo "$RANDOM_PHRASE" > "$GSH_TMP/passphrase.txt"
+  
+  # Create the cryptic note with hex-encoded passphrase hint
+    CRYPTIC_NOTE="$(eval_gettext '$GSH_HOME/Castle/Throne_room/Safe/cryptic_note.txt')"
+    sed "s/PASSPHRASE/$RANDOM_PHRASE/" "$MISSION_DIR/data/quest_message.txt" > "$CRYPTIC_NOTE"
+    chmod 000 "$CRYPTIC_NOTE"
+
+    # Copy all paintings to throne room
+    THRONE_ROOM="$(eval_gettext '$GSH_HOME/Castle/Throne_room')"
+    cp "$MISSION_DIR/ascii-art/painting1.jpg" "$THRONE_ROOM/scene_as28e.jpg"
+    cp "$MISSION_DIR/ascii-art/painting2.jpg" "$THRONE_ROOM/scene_926a2.jpg"
+    cp "$MISSION_DIR/ascii-art/painting3.jpg" "$THRONE_ROOM/scene_1a7b7.jpg"
+    cp "$MISSION_DIR/ascii-art/painting4.jpg" "$THRONE_ROOM/scene_t7g1e.jpg"
+
+    # Convert passphrase to hex
+    HEX_PHRASE=$(echo -n "$RANDOM_PHRASE" | xxd -p)
     
-    # Create temporary message file
-    echo "The traitor's name is: $RANDOM_NAME" > "$GSH_TMP/secret_message.txt"
-    
-    # Copy base image to throne room
-    cp "$MISSION_DIR/ascii-art/king-portrait.jpg" "$(eval_gettext '$GSH_HOME/Castle/Throne_room/mysterious_painting.jpg')"
-    
-    # Hide message in image (empty passphrase for simplicity)
-    steghide embed -cf "$(eval_gettext '$GSH_HOME/Castle/Throne_room/mysterious_painting.jpg')" -ef "$GSH_TMP/secret_message.txt" -p "Tra1t0r" -q
-}
+    # Hide base64 message in random painting (painting2)
+    steghide embed -cf "$THRONE_ROOM/scene_926a2.jpg" -ef "$GSH_TMP/secret_message.txt" -p "$HEX_PHRASE" -q
+
+  }
 _mission_init

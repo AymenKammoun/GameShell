@@ -1,0 +1,17 @@
+Hear ye, hear ye!
+
+By decree of the Royal Cryptographer:
+
+The message thou seeketh lies within one of the paintings in the throne room, 
+protected by ancient magic. To unveil its secrets, thou must know that:
+
+The key to unlock this enchantment must be the hex-encoded form of: PASSPHRASE
+
+Beware, for the message itself is protected by the magic of base64, 
+a powerful spell from the future... err... from the far eastern kingdoms.
+
+May wisdom guide thy path.
+
+P.S: Place thy findings in a scroll named "revealed.txt" within this very safe.
+
+~ Royal Cryptographer

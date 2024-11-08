@@ -1,15 +1,23 @@
 Mission goal
 ============
 
-A spy of the king discovered the identity of a traitor who attempted to poison His Majesty. 
-To protect this sensitive information, the spy hid the traitor's name inside a painting in 
-the throne room.
-The spy indicated to the king that the passphrase is "Tra1t0r".
+After discovering the first traitor, the king's spy has uncovered another 
+conspiracy! Once again, he has hidden the name of a second traitor in a 
+new painting. However, this time he was more cautious...
 
-Your mission is to find the traitor's name hidden in the painting.
+He protected the hidden message with a passphrase and stored this passphrase 
+in a note inside the king's safe. The note's permissions have been set to 
+prevent casual reading.
+
+Your mission is to:
+1. Find and read the protected note in the king's safe
+2. Use its content to extract the hidden message from the new painting
+3. Reveal the name of the second traitor
 
 Useful commands
 ==============
+chmod [OPTIONS] FILE
+     Modifies the permissions for the file (or directory).
 
 eog IMAGE
     Opens a preview of the IMAGE in Linux
