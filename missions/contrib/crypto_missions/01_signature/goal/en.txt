@@ -1,0 +1,17 @@
+Mission goal
+============
+
+Lettre signature mission !
+In the Castle you can find a Mail_Box
+You are expected to recieve only 1 lettre from a friend king but you have receaved 5 lettre instead.
+Your job is to sort the geniune lettre from the fake ones by verifying the signature using the public key of the king.
+
+Useful commands
+==============
+
+openssl dgst -sha256 -verify public_key.pem -signature signature.bin data.txt
+    Verify the signature signature.bin of data.txt using the public key public_key.pem
+
+openssl base64 -d -in signature.sha256 -out signature.256.bin
+    Convert a Base64-encoded signature into binary format using OpenSSL
+
