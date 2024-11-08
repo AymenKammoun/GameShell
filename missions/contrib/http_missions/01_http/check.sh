@@ -18,7 +18,7 @@ _mission_check() {
         read -r answer
         
         if [ -z "$answer" ]; then
-            echo "$(gettext "Please enter a password.")"
+            echo "$(gettext "Please enter the mage's password.")"
             continue
         fi
         
