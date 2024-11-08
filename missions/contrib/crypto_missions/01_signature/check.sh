@@ -17,15 +17,15 @@ _mission_check() {
         then
             if [ ! -e "$GSH_HOME/Castle/Main_building/Mail_box/genuine/lettre$i.txt" ]; then
                 echo "The good lettre is not in the genuine directory"
-                return 0
+                return 1
             fi
         else
-            if [ ! -e "$GSH_HOME/Castle/Main_building/Mail_box/genuine/lettre$i.txt" ]; then
+            if [ ! -e "$GSH_HOME/Castle/Main_building/Mail_box/fake/lettre$i.txt" ]; then
                 echo "A bad lettre is not in the fake directory"
-                return 0
+                return 1
             fi
         fi
     done
-    return 1
+    return 0
 }
 _mission_check
