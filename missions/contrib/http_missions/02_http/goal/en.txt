@@ -1,0 +1,11 @@
+Mission goal
+============
+
+With the mage's password in hand, proceed to the Connection Ward. To prove your loyalty and gain passage, you must perform the Connection Ritual by submitting the mage's username password.
+
+Useful commands
+==============
+
+curl -d "username=mage&password=<password>" -X POST http://<host>/login.php
+    Submits the username and mage's password as form data.
+

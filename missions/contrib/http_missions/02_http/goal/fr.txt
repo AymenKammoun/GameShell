@@ -1,0 +1,10 @@
+Objectif
+========
+
+Avec le mot de passe du mage en main, dirigez-vous vers le Sceau de Connexion. Pour prouver votre loyauté et obtenir le passage, vous devez effectuer le Rituel de Connexion en soumettant le nom d'utilisateur et le mot de passe du mage.
+
+Commandes utiles
+================
+
+curl -d "username=mage&password=<mot_de_passe>" -X POST http://<hôte>/login.php
+    Soumet le nom d'utilisateur et le mot de passe du mage en tant que données de formulaire.

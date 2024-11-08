@@ -1,0 +1,14 @@
+Objectif
+============
+
+Maintenant que vous possédez les identifiants corrects, vous êtes prêt à entrer dans le Sanctuaire Intérieur. Pour accéder à cette chambre protégée, vous devez ré-effectuer le Rituel de Connexion et conserver les données de session pour déverrouiller la dernière barrière.
+
+Commandes utiles
+==============
+
+curl -c cookies.txt -d "username=mage&password=<mot_de_passe>" -X POST http://<hôte>/login.php
+    Ré-envoie le nom d'utilisateur et le Mot de Passe du Mage, en stockant les données de session dans cookies.txt.
+
+curl -b cookies.txt http://<hôte>/protected.php
+    Accède à la page protégée en utilisant les données de session stockées dans cookies.txt.
+
