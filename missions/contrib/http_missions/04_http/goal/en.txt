@@ -1,0 +1,14 @@
+Mission goal
+============
+
+Now that you possess the correct credentials, you are ready to enter the Inner Sanctum. To access this protected chamber, you must re-perform the Connection Ritual and carry the session data forward to unlock the final ward.
+
+Useful commands
+==============
+
+curl -c cookies.txt -d "username=mage&password=<password>" -X POST http://<host>/login.php
+        Re-submits the username and Mage's Password, storing session data in cookies.txt.
+
+curl -b cookies.txt http://<host>/protected.php
+    Accesses the protected page using the session data stored in cookies.txt.
+
