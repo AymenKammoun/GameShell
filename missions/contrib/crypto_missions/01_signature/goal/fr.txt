@@ -1,20 +1,2 @@
 Objectif
 ========
-
-Un espion du roi a découvert l'identité d'un traître qui a tenté d'empoisonner Sa Majesté.
-Pour protéger cette information sensible, l'espion a caché le nom du traître dans une peinture
-de la salle du trône.
-L'espion a indiqué au roi que sa PHRASE_SECRETE est "Tra1t0r".
-Votre mission est de trouver le nom du traître caché dans la peinture.
-
-Commandes utiles
-================
-eog IMAGE
-    Permet d'ouvrir et visualiser IMAGE avec Linux
-
-COMMANDE &
-  Lance la commande en tâche de fond.
-
-steghide extract -sf FICHIER -p PHRASE_SECRETE
-    Extrait les données cachées du FICHIER en utilisant la PHRASE_SECRETE utilisée 
-    initialement pour intégrer les données dans le FICHIER.

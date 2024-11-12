@@ -21,15 +21,14 @@
 _mission_init() {
 
     # Create good RSA keys
-    mkdir $MISSION_DIR/data/
-    mkdir $MISSION_DIR/data/good_keys
-    openssl genrsa -out $MISSION_DIR/data/good_keys/private.pem 4096
-    openssl rsa -in $MISSION_DIR/data/good_keys/private.pem -pubout -out $MISSION_DIR/data/good_keys/public.pem
+    mkdir $GSH_TMP/good_keys
+    openssl genrsa -out $GSH_TMP/good_keys/private.pem 4096
+    openssl rsa -in $GSH_TMPgood_keys/private.pem -pubout -out $GSH_TMP/good_keys/public.pem
 
     # Create bad RSA keys
-    mkdir $MISSION_DIR/data/bad_keys
-    openssl genrsa -out $MISSION_DIR/data/bad_keys/private.pem 4096
-    openssl rsa -in $MISSION_DIR/data/bad_keys/private.pem -pubout -out $MISSION_DIR/data/bad_keys/public.pem
+    mkdir $GSH_TMP/bad_keys
+    openssl genrsa -out $GSH_TMP/bad_keys/private.pem 4096
+    openssl rsa -in $GSH_TMP/data/bad_keys/private.pem -pubout -out $GSH_TMP/bad_keys/public.pem
 
     #Creating 5 letters
     for i in {1..5}
@@ -38,15 +37,17 @@ _mission_init() {
     done
 
     GOOD_LETTRE_INDEX=$((1 + $RANDOM % 5))
-    echo "The good index is $GOOD_LETTRE_INDEX"
+    #echo "Debug : The good index is $GOOD_LETTRE_INDEX"
+
+    #Creating signatures
     for i in {1..5}
     do
       
       if [[ $i -eq $GOOD_LETTRE_INDEX ]]
       then
-        KEY_PATH=$MISSION_DIR/data/good_keys/private.pem
+        KEY_PATH=$GSH_TMP/good_keys/private.pem
       else
-        KEY_PATH=$MISSION_DIR/data/bad_keys/private.pem
+        KEY_PATH=$GSH_TMP/bad_keys/private.pem
       fi
       openssl dgst -sha256 -sign $KEY_PATH -out $GSH_HOME/Castle/Main_building/Mail_box/unsorted/lettre$(eval_gettext '$i')_sign.sha256.bin $GSH_HOME/Castle/Main_building/Mail_box/unsorted/lettre$i.txt
       openssl base64 -in $GSH_HOME/Castle/Main_building/Mail_box/unsorted/lettre$(eval_gettext '$i')_sign.sha256.bin -out $GSH_HOME/Castle/Main_building/Mail_box/unsorted/lettre$(eval_gettext '$i')_sign.sha256
@@ -54,10 +55,9 @@ _mission_init() {
     done
 
     #Copy the good public key for signature verification
-    cp $MISSION_DIR/data/good_keys/public.pem $GSH_HOME/Castle/Main_building/Mail_box/unsorted/public.pem
+    cp $MISSGSH_TMP/good_keys/public.pem $GSH_HOME/Castle/Main_building/Library/King_James_Public_Key/public.pem
 
     #Delete the data repo
-    rm -r $MISSION_DIR/data
     # Select random name from list
     #NAMES_FILE="$MISSION_DIR/data/names.txt"
     #RANDOM_NAME=$(shuf -n 1 "$NAMES_FILE")
