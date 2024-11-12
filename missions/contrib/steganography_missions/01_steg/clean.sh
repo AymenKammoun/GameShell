@@ -8,3 +8,6 @@
 # If you need this file, rename it to clean.sh
 rm -r "$GSH_TMP/good_keys/"
 rm -r "$GSH_TMP/bad_keys/"
+rm -r "$GSH_HOME/Castle/Main_building/Mail_box/unsorted/"
+rm -r "$GSH_HOME/Castle/Main_building/Mail_box/fake/"
+rm -r "$GSH_HOME/Castle/Main_building/Mail_box/genuine/"
