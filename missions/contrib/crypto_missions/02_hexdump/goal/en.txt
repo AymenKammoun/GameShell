@@ -1,0 +1,18 @@
+Mission goal
+============
+
+You have recived a locked payload in your Mail_Box. The package contains a password verifiyer executable.
+Luckly for you, the password is hard coded in clear text in the password verifiyer executable.
+Try to find it using simple reverse engeneering.
+
+**Useful Tip: The password starts with "pass" 
+
+Useful commands
+==============
+
+xxd file
+    Hexdump a file
+
+grep
+    Search of a particular string pattern
+
