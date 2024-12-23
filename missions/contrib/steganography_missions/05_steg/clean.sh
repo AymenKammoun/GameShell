@@ -6,7 +6,6 @@
 # inspect the variable $GSH_LAST_ACTION, which can take the following values:
 # assert, check_false, check_true, exit, goto, hard_reset, reset, skip
 # If you need this file, rename it to clean.sh
-rm -f "$GSH_TMP/secret_message.txt"
 rm -f "$GSH_TMP/traitor_name.txt"
-rm -f "$GSH_HOME/Castle/Main_building/Throne_room/mysterious_painting.jpg"
-rm -f "$GSH_HOME/Castle/Main_building/Throne_room/secret_message.txt"
+rm -f "$GSH_TMP/passphrase.txt"
+rm -f "$GSH_TMP/secret_message.txt"

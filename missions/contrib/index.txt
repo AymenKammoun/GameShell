@@ -1,5 +1,5 @@
-crypto_missions/index.txt
 steganography_missions/index.txt
+crypto_missions/index.txt
 sort_diff_missions/index.txt
 sed_missions/01_basic_sed
 sed_missions/02_regex_sed

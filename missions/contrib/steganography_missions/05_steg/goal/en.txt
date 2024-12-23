@@ -16,7 +16,7 @@ Your mission:
 Useful commands
 ==============
 
-display IMAGE
+eog IMAGE
     Opens a preview of the IMAGE in Linux
 
 COMMANDE &

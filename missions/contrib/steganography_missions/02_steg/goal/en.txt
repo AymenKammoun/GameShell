@@ -19,7 +19,7 @@ Useful commands
 chmod [OPTIONS] FILE
      Modifies the permissions for the file (or directory).
 
-eog IMAGE
+display IMAGE
     Opens a preview of the IMAGE in Linux
 
 COMMANDE &

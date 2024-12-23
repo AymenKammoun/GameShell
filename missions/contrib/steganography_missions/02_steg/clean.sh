@@ -9,3 +9,6 @@
 rm -f "$GSH_TMP/traitor_name.txt"
 rm -f "$GSH_TMP/passphrase.txt"
 rm -f "$GSH_TMP/secret_message.txt"
+rm -f "$GSH_HOME/Castle/Main_building/Throne_room/Safe/secret_note.txt"
+rm -f "$GSH_HOME/Castle/Main_building/Throne_room/king_portait.jpg"
+rm -f "$GSH_HOME/Castle/Main_building/Throne_room/secret_message.txt"

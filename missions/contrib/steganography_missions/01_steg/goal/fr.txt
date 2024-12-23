@@ -9,7 +9,7 @@ Votre mission est de trouver le nom du traître caché dans la peinture.
 
 Commandes utiles
 ================
-eog IMAGE
+display IMAGE
     Permet d'ouvrir et visualiser IMAGE avec Linux
 
 COMMANDE &

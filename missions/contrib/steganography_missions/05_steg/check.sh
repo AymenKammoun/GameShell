@@ -11,20 +11,20 @@
 # It typically looks like
 
 _mission_check() {
-    SAFE_PATH="$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe')"
+    SAFE_PATH="$(eval_gettext '$GSH_HOME/Castle/Throne_room/Safe')"
     REVEALED_FILE="$SAFE_PATH/revealed.txt"
-    CORRECT_NAME="$GSH_TMP/traitor_name_encoded.txt"
+    CORRECT_NAME=$(cat "$GSH_TMP/traitor_name.txt")
     
     # Check if revealed.txt exists
     if [ ! -f "$REVEALED_FILE" ]; then
         echo "$(gettext "The revealed.txt file is missing from the safe!")"
         return 1
-    fi
+    }
+    
     # Read and clean the content (remove spaces, newlines)
     REVEALED_CONTENT=$(tr -d '[:space:]' < "$REVEALED_FILE")
-    echo $REVEALED_CONTENT
-    CORRECT_CONTENT=$(tr -d '[:space:]' < "$CORRECT_NAME")
-    echo $CORRECT_CONTENT
+    CORRECT_CONTENT=$(echo "The traitor among the court is: $CORRECT_NAME" | tr -d '[:space:]')
+    
     if [ "$REVEALED_CONTENT" = "$CORRECT_CONTENT" ]; then
         return 0
     else

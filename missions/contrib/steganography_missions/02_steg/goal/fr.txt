@@ -19,7 +19,7 @@ Commandes utiles
 chmod [OPTIONS] FICHIER
      Modifie les permissions du fichier (ou du répertoire).
 
-eog IMAGE
+display IMAGE
     Ouvre un aperçu de l'IMAGE sous Linux
 
 COMMANDE &

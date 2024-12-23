@@ -16,7 +16,7 @@ Votre mission :
 Commandes utiles
 ==============
 
-display IMAGE
+eog IMAGE
     Ouvre un aperçu de l'IMAGE dans Linux
 
 COMMANDE &

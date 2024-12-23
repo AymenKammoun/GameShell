@@ -34,14 +34,14 @@ _mission_init() {
     echo "The second traitor's name is: $RANDOM_NAME" > "$GSH_TMP/secret_message.txt"
     
     # Create protected note with passphrase in the safe
-    NOTE_PATH="$(eval_gettext '$GSH_HOME/Castle/Throne_room/Safe/secret_note.txt')"
+    NOTE_PATH="$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe/secret_note.txt')"
     echo "Passphrase for the painting: $RANDOM_PHRASE" > "$NOTE_PATH"
     # Remove read permissions
     chmod 000 "$NOTE_PATH"
     
     # Copy new painting to throne room
-    PAINTING_PATH="$(eval_gettext '$GSH_HOME/Castle/Throne_room/king_portait.jpg')"
-    cp "$MISSION_DIR/ascii-art/painting.jpg" "$PAINTING_PATH"
+    PAINTING_PATH="$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/king_portait.jpg')"
+    cp "$MISSION_DIR/ascii-art/king-portrait.jpg" "$PAINTING_PATH"
     
     # Hide message in image with passphrase
     steghide embed -cf "$PAINTING_PATH" -ef "$GSH_TMP/secret_message.txt" -p "$RANDOM_PHRASE" -q

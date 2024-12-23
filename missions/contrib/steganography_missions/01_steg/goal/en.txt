@@ -11,7 +11,7 @@ Your mission is to find the traitor's name hidden in the painting.
 Useful commands
 ==============
 
-eog IMAGE
+display IMAGE
     Opens a preview of the IMAGE in Linux
 
 COMMANDE &

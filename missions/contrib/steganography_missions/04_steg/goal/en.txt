@@ -1,0 +1,18 @@
+Mission goal
+============
+
+The King's cartographer has disappeared, but he left behind a mysterious map of the kingdom. 
+The Royal Wizard suspects that the cartographer has hidden secret documents within the map 
+itself.
+
+Your mission is to discover what secrets are hidden within the map using the ancient art 
+of file analysis.
+
+Useful commands
+==============
+
+binwalk MAP_FILE
+    Analyzes the given file to detect embedded files and executable code
+
+binwalk -e MAP_FILE
+    Extracts any files discovered within the given file

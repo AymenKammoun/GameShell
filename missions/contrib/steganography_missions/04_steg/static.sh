@@ -7,5 +7,4 @@
 #
 # Since it is sourced, it may define environment variables if you really need
 # them, but it should "unset" any local variable it has created.
-# Ensure throne room and safe exist
-mkdir -p "$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe')"
+mkdir -p "$(eval_gettext '$GSH_HOME/Castle/Main_building/Library/Cartographer_room')"
