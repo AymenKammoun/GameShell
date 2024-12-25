@@ -1,18 +1,16 @@
 Mission goal
 ============
 
-The King's cartographer has disappeared, but he left behind a mysterious map of the kingdom. 
-The Royal Wizard suspects that the cartographer has hidden secret documents within the map 
-itself.
+The Royal Spy has hidden crucial information in what appears to be a simple text file 
+in the Safe. However, something seems off about this file.
 
-Your mission is to discover what secrets are hidden within the map using the ancient art 
-of file analysis.
+Your mission is to inspect the suspicious file to find out the message left by the Spy
 
 Useful commands
 ==============
 
-binwalk MAP_FILE
-    Analyzes the given file to detect embedded files and executable code
+file FILE
+    Determines the type of FILE by examining its contents
 
-binwalk -e MAP_FILE
-    Extracts any files discovered within the given file
+exiftool FILE
+    Reads and displays metadata from FILE (images, PDFs, etc.)

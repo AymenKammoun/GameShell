@@ -1,35 +1,18 @@
 Mission goal
 ============
 
-The king's spy has become increasingly paranoid. This time, he has hidden his 
-message using multiple layers of encoding, and to make matters worse, he has 
-placed several paintings in the throne room to confuse potential enemies.
+The Royal Spy has hidden crucial information in what appears to be a simple text file 
+in the Safe. However, something seems off about this file.
 
-A note in the king's safe provides a cryptic hint about the passphrase...
-
-Your mission:
-1. Find which painting contains the hidden message
-2. Decode the passphrase using the hint in the safe
-3. Extract and decode the hidden message
-4. Place the decoded message in a file named "revealed.txt" in the king's safe
+Your mission is to:
+1. Determine the real nature of this suspicious file
+2. Extract the hidden information it contains
 
 Useful commands
 ==============
 
-eog IMAGE
-    Opens a preview of the IMAGE in Linux
+file FILE
+    Determines the type of FILE by examining its contents
 
-COMMANDE &
-  Run the command in the background.
-
-steghide extract -sf FILE -p PASSPHRASE
-    Extracts hidden data from FILE using the PASSPHRASE used to initally embed the data 
-    inside the FILE.
-
-echo MESSAGE | base64
-    Encodes the message string in base64 format
-    add -d to decode the hex encoded message
-
-echo MESSAGE | xxd -p
-    Encodes the message string in hex format
-    add -r to decode the hex encoded message
+exiftool FILE
+    Reads and displays metadata from FILE (images, PDFs, etc.)

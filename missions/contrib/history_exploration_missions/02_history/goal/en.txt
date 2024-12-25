@@ -1,0 +1,23 @@
+Mission goal
+============
+
+As a new member of the Royal Guard, you need to learn about security basics. The 
+Captain of the Guard has noticed that many guards leave traces of their commands 
+in their magical scrolls (bash history).
+
+Your mission is to:
+1. Check what commands are stored in your history
+2. Learn how to clear sensitive commands
+3. Clear a specific password command from your history
+
+Useful commands
+==============
+
+history
+    Shows the command history
+
+history -d NUMBER
+    Deletes a specific command from history (NUMBER is the command's position)
+
+history | grep PATTERN
+    Searches for specific commands in history

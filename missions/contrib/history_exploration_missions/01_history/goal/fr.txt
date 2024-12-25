@@ -1,0 +1,23 @@
+# goal/fr.txt
+Objectif de la mission
+============
+
+En tant que jeune membre de la Garde royale, vous devez vous familiariser avec l'audit de sécurité. 
+Le capitaine soupçonne quelqu'un d'avoir négligé des informations sensibles dans son 
+dans son historique de commandement.
+
+Votre mission consiste à :
+1. Examiner l'historique des commandes
+2. Trouver tout mot de passe exposé
+3. Signaler le mot de passe exact qui a été exposé
+
+Commandes utiles
+==============
+
+historique
+    Affiche l'historique de la commande
+
+history | grep PATTERN
+    Recherche les commandes contenant PATTERN
+
+Remarque : en matière de sécurité, repérer les secrets exposés est la première étape pour les corriger !

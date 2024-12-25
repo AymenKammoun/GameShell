@@ -1,18 +1,16 @@
 Objectif de la mission
 ============
 
-Le cartographe du roi a disparu dans des circonstances mystérieuses, mais il a laissé derrière lui une mystérieuse carte du royaume. 
-Le magicien royal soupçonne le cartographe d'avoir caché des documents secrets dans la carte elle-même. 
-la carte elle-même.
+L'espion royal a caché des informations cruciales dans ce qui semble être un simple fichier texte 
+dans le Safe du roi. Cependant, quelque chose ne tourne pas rond dans ce fichier.
 
-Votre mission est de découvrir les secrets cachés dans la carte en utilisant l'art ancien de l'analyse de fichiers. 
-de l'analyse de fichiers.
+Votre mission consiste à inspecter le fichier suspect pour retrouver le message caché de l'espion
 
 Commandes utiles
 ==============
 
-binwalk MAP_FILE
-    Analyse le fichier donné pour détecter les fichiers intégrés et le code exécutable.
+file FICHIER
+    Détermine le type de FICHIER en examinant son contenu
 
-binwalk -e MAP_FILE
-    Extrait tous les fichiers découverts dans le fichier donné
+exiftool FICHIER
+    Lit et affiche les métadonnées de FICHIER (images, PDF, etc.)

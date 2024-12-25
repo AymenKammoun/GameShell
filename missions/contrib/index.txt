@@ -1,4 +1,4 @@
-steganography_missions/index.txt
+history_exploration_missions/index.txt
 crypto_missions/index.txt
 sort_diff_missions/index.txt
 sed_missions/01_basic_sed

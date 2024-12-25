@@ -1,0 +1,23 @@
+# goal/en.txt
+Mission goal
+============
+
+As a junior member of the Royal Guard, you need to learn about security auditing. 
+The Captain suspects that someone has been careless with sensitive information in 
+their command history.
+
+Your mission is to:
+1. Examine the command history
+2. Find any exposed password
+3. Report the exact password that was exposed
+
+Useful commands
+==============
+
+history
+    Shows the command history
+
+history | grep PATTERN
+    Searches for commands containing PATTERN
+
+Note: In security, spotting exposed secrets is the first step to fixing them!

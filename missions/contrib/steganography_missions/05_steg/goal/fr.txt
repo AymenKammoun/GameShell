@@ -1,35 +1,18 @@
 Objectif de la mission
 ============
 
-L'espion du roi devient de plus en plus paranoïaque. Cette fois, il a caché son message 
-message en utilisant plusieurs couches d'encodage et, pour aggraver les choses, il a placé plusieurs 
-Il a placé plusieurs tableaux dans la salle du trône pour semer la confusion chez ses ennemis potentiels.
+L'espion royal a caché des informations cruciales dans ce qui semble être un simple fichier texte 
+dans le Safe du roi. Cependant, quelque chose ne tourne pas rond dans ce fichier.
 
-Une note dans le coffre-fort du roi fournit un indice énigmatique sur la phrase de passe...
-
-Votre mission :
-1. Trouvez le tableau qui contient le message caché
-2. Décoder la phrase de passe à l'aide de l'indice contenu dans le coffre-fort.
-3. Extraire et décoder le message caché
-4. Placer le message décodé dans un fichier nommé « revealed.txt » dans le coffre-fort du roi.
+Votre mission consiste à :
+1. Déterminer la véritable nature de ce fichier suspect
+2. Extraire les informations cachées qu'il contient
 
 Commandes utiles
 ==============
 
-eog IMAGE
-    Ouvre un aperçu de l'IMAGE dans Linux
+file FICHIER
+    Détermine le type de FICHIER en examinant son contenu
 
-COMMANDE &
-  Exécute la commande en arrière-plan.
-
-steghide extract -sf FILE -p PASSPHRASE
-    Extrait les données cachées du FICHIER en utilisant la PASSPHRASE utilisée pour intégrer les données dans le FICHIER. 
-    dans le FICHIER.
-
-echo MESSAGE | base64
-    Encode le MESSAGE au format base64
-    ajoutez -d pour décoder le message codé en hexadécimal
-
-echo MESSAGE | xxd -p
-    Encode le MESSAGE au format hexadécimal
-    add -r pour décoder le message codé en hexadécimal
+exiftool FICHIER
+    Lit et affiche les métadonnées de FICHIER (images, PDF, etc.)

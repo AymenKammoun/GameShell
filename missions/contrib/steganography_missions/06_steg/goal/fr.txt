@@ -1,0 +1,18 @@
+Objectif de la mission
+============
+
+Le cartographe du roi a disparu dans des circonstances mystérieuses, mais il a laissé derrière lui une mystérieuse carte du royaume. 
+Le magicien royal soupçonne le cartographe d'avoir caché des documents secrets dans la carte elle-même. 
+la carte elle-même.
+
+Votre mission est de découvrir les secrets cachés dans la carte en utilisant l'art ancien de l'analyse de fichiers. 
+de l'analyse de fichiers.
+
+Commandes utiles
+==============
+
+binwalk MAP_FILE
+    Analyse le fichier donné pour détecter les fichiers intégrés et le code exécutable.
+
+binwalk -e MAP_FILE
+    Extrait tous les fichiers découverts dans le fichier donné

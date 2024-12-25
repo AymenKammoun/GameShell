@@ -17,13 +17,18 @@
 # in that case.
 #
 # It typically looks like
+# init.sh
 _mission_init() {
+    # Create a secret message
+    echo "My dear King, I have discovered a plot against the kingdom. The details are in the attached scroll." > "$GSH_TMP/secret_letter.txt"
 
-    # Copier l'image source
-    cp "$MISSION_DIR/ascii-art/painting1.jpg" "$GSH_TMP/castle_image.jpg"
+    # Create a fake scroll with evidence
+    echo "The mercenaries will attack through the forest passage during the next full moon." > "$GSH_TMP/scroll.txt"
 
-    # Copier l'image avec une extension trompeuse
-    cp "$GSH_TMP/castle_image.jpg" "$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe/Your_Highness.pdf')" 
-    
+    # Combine files into the map image
+    cp "$MISSION_DIR/ascii-art/kingdom_map.jpg" "$GSH_TMP/base_map.jpg"
+    zip -j -q "$GSH_TMP/secret_docs.zip" "$GSH_TMP/secret_letter.txt" "$GSH_TMP/scroll.txt"
+
+    cat "$GSH_TMP/base_map.jpg" "$GSH_TMP/secret_docs.zip" > "$(eval_gettext '$GSH_HOME/Castle/Main_building/Library/Cartographer_room/mysterious_map.jpg')"
 }
 _mission_init

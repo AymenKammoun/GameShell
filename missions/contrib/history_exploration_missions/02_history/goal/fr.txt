@@ -1,0 +1,23 @@
+Objectif de la mission
+============
+
+En tant que nouveau membre de la Garde royale, vous devez apprendre les bases de la sécurité. Le capitaine de la garde a remarqué que de nombreux gardes laissaient des traces de leurs ordres. 
+Capitaine de la Garde a remarqué que de nombreux gardes laissent des traces de leurs ordres 
+dans leurs parchemins magiques (bash history).
+
+Votre mission est de :
+1. Vérifier quelles commandes sont stockées dans votre historique
+2. Apprendre à effacer les commandes sensibles
+3. Effacer une commande de mot de passe spécifique de votre historique
+
+Commandes utiles
+==============
+
+historique
+    Affiche l'historique des commandes
+
+history -d NUMBER
+    Supprime une commande spécifique de l'historique (NUMBER est la position de la commande)
+
+history | grep PATTERN
+    Recherche des commandes spécifiques dans l'historique

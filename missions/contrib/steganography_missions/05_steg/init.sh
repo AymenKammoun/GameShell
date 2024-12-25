@@ -18,33 +18,16 @@
 #
 # It typically looks like
 _mission_init() {
-  # Select random name and passphrase
-    NAMES_FILE="$MISSION_DIR/data/names.txt"
-    PHRASES_FILE="$MISSION_DIR/data/phrases.txt"
-    RANDOM_NAME=$(shuf -n 1 "$NAMES_FILE")
-    RANDOM_PHRASE=$(shuf -n 1 "$PHRASES_FILE")
+    # Créer le message secret dans les métadonnées
+    SECRET_MESSAGE="Enemy troops will attack from the North Gate. -Agent X"
 
-  # Save for checking later
-    echo "$RANDOM_NAME" > "$GSH_TMP/traitor_name.txt"
-    echo "$RANDOM_PHRASE" > "$GSH_TMP/passphrase.txt"
-  
-  # Create the cryptic note with hex-encoded passphrase hint
-    CRYPTIC_NOTE="$(eval_gettext '$GSH_HOME/Castle/Throne_room/Safe/cryptic_note.txt')"
-    sed "s/PASSPHRASE/$RANDOM_PHRASE/" "$MISSION_DIR/data/quest_message.txt" > "$CRYPTIC_NOTE"
-    chmod 000 "$CRYPTIC_NOTE"
+    # Copier l'image source
+    cp "$MISSION_DIR/ascii-art/kingdom_map.png" "$GSH_TMP/kingdom_map.png"
 
-    # Copy all paintings to throne room
-    THRONE_ROOM="$(eval_gettext '$GSH_HOME/Castle/Throne_room')"
-    cp "$MISSION_DIR/ascii-art/painting1.jpg" "$THRONE_ROOM/scene_as28e.jpg"
-    cp "$MISSION_DIR/ascii-art/painting2.jpg" "$THRONE_ROOM/scene_926a2.jpg"
-    cp "$MISSION_DIR/ascii-art/painting3.jpg" "$THRONE_ROOM/scene_1a7b7.jpg"
-    cp "$MISSION_DIR/ascii-art/painting4.jpg" "$THRONE_ROOM/scene_t7g1e.jpg"
+    # Ajouter le message secret dans les métadonnées
+    exiftool -Comment="$SECRET_MESSAGE" "$GSH_TMP/kingdom_map.png"
 
-    # Convert passphrase to hex
-    HEX_PHRASE=$(echo -n "$RANDOM_PHRASE" | xxd -p)
-    
-    # Hide base64 message in random painting (painting2)
-    steghide embed -cf "$THRONE_ROOM/scene_926a2.jpg" -ef "$GSH_TMP/secret_message.txt" -p "$HEX_PHRASE" -q
-
-  }
+    # Copier l'image avec une extension trompeuse
+    cp "$GSH_TMP/kingdom_map.png" "$(eval_gettext '$GSH_HOME/Castle/Main_building/Throne_room/Safe/report.txt')"
+}
 _mission_init

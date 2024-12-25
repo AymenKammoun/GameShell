@@ -11,21 +11,15 @@
 # It typically looks like
 
 _mission_check() {
-    while true; do
-        printf "$(gettext "What is the secret message? ")"
-        read -r answer
+    # Check if the player has extracted the files
+    printf "$(gettext "What will happen during the next full moon? ")"
+    read -r answer
 
-        if [ -z "$answer" ]; then
-            echo "$(gettext "Please enter the message.")"
-            continue
-        fi
-
-        if [ "$answer" = "GSH{Always_check_metadata}" ]; then
-            return 0
-        else
-            echo "$(gettext "That's not the correct message!")"
-            return 1
-        fi
-    done
+    if echo "$answer" | grep -qi "mercenaries.*attack.*forest.*passage"; then
+        return 0
+    else
+        echo "$(gettext "That's not what the evidence reveals. Read the extracted documents carefully!")"
+        return 1
+    fi
 }
 _mission_check
