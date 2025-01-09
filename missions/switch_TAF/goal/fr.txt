@@ -1,0 +1,31 @@
+Objectif de la mission
+========================
+
+Félicitations ! !!
+Vous avez maîtrisé les commandes Unix de base et vous êtes prêt à vous spécialiser !
+Pour vous récompenser de votre travail et de votre dévouement, le Roi vous offre différentes voies de spécialisation :
+
+1. Voie de la cybersécurité
+   - Se concentrer sur les commandes de sécurité
+   - Apprendre les permissions et le cryptage
+   - Maîtriser les outils de sécurité
+
+2. Parcours IoT
+   - Se concentrer sur la surveillance du système
+   - Apprendre à connaître les appareils et les protocoles
+   - Maîtriser les outils d'automatisation
+
+3. Parcours Cloud
+   - Se concentrer sur la mise en réseau
+   - Apprendre les services et les conteneurs
+   - Maîtriser les outils cloud
+
+4. Parcours par défaut (parcours complet)
+   - Poursuivre toutes les missions
+   - Maîtriser tous les aspects d'Unix
+
+Choisissez judicieusement, car cela déterminera vos futures missions !
+
+Pour faire votre choix, utilisez :
+gsh choose NUMERO
+(où NUMERO est 1, 2, 3 ou 4)

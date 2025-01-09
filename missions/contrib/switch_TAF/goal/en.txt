@@ -1,0 +1,31 @@
+Mission goal
+========================
+
+Congratulations !!!
+You have mastered the basic Unix commands and are ready to specialize!
+As a reward for you hardwork and dedication, the King offers you different paths of specialization:
+
+1. Cybersecurity Path
+   - Focus on security commands
+   - Learn about permissions and encryption
+   - Master security tools
+
+2. IoT Path
+   - Focus on system monitoring
+   - Learn about devices and protocols
+   - Master automation tools
+
+3. Cloud Path
+   - Focus on networking
+   - Learn about services and containers
+   - Master cloud tools
+
+4. Default Path (Complete Journey)
+   - Continue with all missions
+   - Master every aspect of Unix
+
+Choose wisely, as this will determine your future missions!
+
+To make your choice, use:
+gsh choose NUMBER
+(where NUMBER is 1, 2, 3 or 4)

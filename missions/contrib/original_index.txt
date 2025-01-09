@@ -1,0 +1,13 @@
+history_exploration_missions/index.txt
+crypto_missions/index.txt
+sort_diff_missions/index.txt
+sed_missions/01_basic_sed
+sed_missions/02_regex_sed
+netcat_mission
+treasure_missions/index.txt
+log_missions/01_log
+log_missions/02_log
+log_missions/03_log
+log_missions/04_log
+log_missions/05_log
+log_missions/06_log
