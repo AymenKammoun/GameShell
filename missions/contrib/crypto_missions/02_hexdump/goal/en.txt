@@ -3,7 +3,7 @@ Mission goal
 
 You have recived a locked payload in your Mail_Box. The package contains a password verifiyer executable.
 Luckly for you, the password is hard coded in clear text in the password verifiyer executable.
-Try to find it using simple reverse engeneering.
+Try to find it using simple file inspecting.
 
 **Useful Tip: The password starts with "pass" 
 
