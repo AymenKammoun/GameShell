@@ -650,6 +650,32 @@ _gsh_test() {
   return "$ret"
 }
 
+_gsh_choose() {
+    local choice=$1
+
+    case $choice in
+        1|2|3|4)
+            mkdir -p "$GSH_CONFIG/specialization"
+            echo "$choice" > "$GSH_CONFIG/specialization/choice"
+
+            echo "\n==================================="
+            case $choice in
+                1) echo "🔒 $(gettext "Welcome to the Cybersecurity path!")" ;;
+                2) echo "🔌 $(gettext "Welcome to the IoT path!")" ;;
+                3) echo "☁️  $(gettext "Welcome to the Cloud path!")" ;;
+                4) echo "🎯 $(gettext "Welcome to the Complete Journey!")" ;;
+            esac
+            echo "==================================="
+
+            _gsh_check
+            return $?
+            ;;
+        *)
+            echo "$(gettext "Error: Invalid choice! Please enter a number between 1-4")" >&2
+            return 1
+            ;;
+    esac
+}
 
 gsh() {
   local _TEXTDOMAIN=$TEXTDOMAIN
@@ -720,6 +746,24 @@ gsh() {
       __gsh_start "$@"
       ;;
 
+    "choose")
+      if [ -z "$1" ]
+      then
+        echo "$(gettext "Error: the 'choose' command requires a number (1-4) as argument.")" >&2
+        return 1
+      fi
+
+      # Vérifier que nous sommes dans la mission switch_TAF
+      local MISSION_NB="$(_gsh_pcm)"
+      local MISSION_DIR="$(missiondir "$MISSION_NB")"
+      if [ "$(basename "$MISSION_DIR")" != "switch_TAF" ]
+      then
+        echo "$(gettext "Error: the 'choose' command can only be used in the specialization mission.")" >&2
+        return 1
+      fi
+      _gsh_choose "$1"
+      ret=$?
+      ;;
     *)
       if command -v "_gsh_$cmd" >/dev/null
       then
@@ -737,7 +781,7 @@ gsh() {
         ret=$?
       else
         echo "$(eval_gettext "Error: unknown gsh command '\$cmd'.
-Use one of the following commands:")  check, goal, help, reset" >&2
+Use one of the following commands:")  check, goal, help, reset, choose" >&2
         export TEXTDOMAIN=$_TEXTDOMAIN
         unset _TEXTDOMAIN
         return 1

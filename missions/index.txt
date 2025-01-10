@@ -4,4 +4,3 @@ intermediate/01_alias_la
 misc/02_nano_journal
 intermediate/02_alias_journal
 contrib/switch_TAF
-intermediate/02_alias_journal

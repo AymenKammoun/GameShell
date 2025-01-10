@@ -1,1 +1,2 @@
-contrib/index.txt
+contrib/steganography_missions/01_steg
+

@@ -13,46 +13,35 @@
 #!/usr/bin/env sh
 
 _mission_check() {
+    # Vérifier si un choix a été fait
+    if [ ! -f "$GSH_CONFIG/specialization/choice" ]; then
+        return 1
+    fi
 
-    while true; do
-        printf "\n$(gettext "Enter your choice (1-4): ")"
-        read -r choice
+    local choice=$(cat "$GSH_CONFIG/specialization/choice")
 
-        case $choice in
-            1|2|3|4)
-                # Sauvegarder le choix pour start.sh
-                echo "$choice" > "$GSH_TMP/specialization_choice"
+    # Modifier l'index des missions selon le choix
+    case $choice in
+        1) # Cyber
+            head -n "$MISSION_NB" "$GSH_CONFIG/index.txt" > "$GSH_CONFIG/new_index.txt"
+            cat "$GSH_MISSIONS/index_cyber.txt" >> "$GSH_CONFIG/new_index.txt"
+            ;;
+        2) # IoT
+            head -n "$MISSION_NB" "$GSH_CONFIG/index.txt" > "$GSH_CONFIG/new_index.txt"
+            cat "$GSH_MISSIONS/index_iot.txt" >> "$GSH_CONFIG/new_index.txt"
+            ;;
+        3) # Cloud
+            head -n "$MISSION_NB" "$GSH_CONFIG/index.txt" > "$GSH_CONFIG/new_index.txt"
+            cat "$GSH_MISSIONS/index_pnum.txt" >> "$GSH_CONFIG/new_index.txt"
+            ;;
+        4) # Default
+            # Garder l'index original
+            cp "$GSH_CONFIG/suite_missions_index.txt" "$GSH_CONFIG/new_index.txt"
+            ;;
+    esac
 
-                # Feedback visuel
-                echo "\n$(gettext "==================================")"
-                case $choice in
-                    1) 
-                        echo "$(gettext "🔒 Welcome to the Cybersecurity path!")"
-                        echo "$(gettext "Your journey into security begins...")"
-                        ;;
-                    2)
-                        echo "$(gettext "🔌 Welcome to the IoT path!")"
-                        echo "$(gettext "Your connected adventure starts...")"
-                        ;;
-                    3)
-                        echo "$(gettext "☁️  Welcome to the Cloud path!")"
-                        echo "$(gettext "Your cloud journey begins...")"
-                        ;;
-                    4)
-                        echo "$(gettext "🎯 Welcome to the Complete Journey!")"
-                        echo "$(gettext "Your full Unix mastery awaits...")"
-                        ;;
-                esac
-                echo "$(gettext "==================================")"
-                return 0
-                ;;
-            "")
-                echo "$(gettext "Please enter a number (1-4)")"
-                ;;
-            *)
-                echo "$(gettext "Invalid choice! Please enter a number between 1-4")"
-                ;;
-        esac
-    done
+    mv "$GSH_CONFIG/new_index.txt" "$GSH_CONFIG/index.txt"
+    return 0
 }
+
 _mission_check
