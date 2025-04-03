@@ -1,0 +1,13 @@
+Mission goal
+============
+
+There is a private meeting that is planned for next week.
+To join the meet, you have to get the passphrase.
+Fortunately, there is an MQTT topic that broadcasts the passphrase. One of your spies told you that the topic name is GameShell/important_topic
+All you have to do is subscribe to that topic and wait for the passphrase.
+
+Useful commands
+==============
+
+mosquitto_sub -h localhost -t <topic_name>
+

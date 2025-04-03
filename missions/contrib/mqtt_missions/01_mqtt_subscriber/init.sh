@@ -19,6 +19,10 @@
 # It typically looks like
 
 _mission_init() {
-    echo "Mission initialized!"
+    #echo "Starting mosquitto service!"
+    #sudo systemctl enable mosquitto
+    #sudo systemctl start mosquitto
+
+    "$MISSION_DIR"/scripts/publisher_loop.sh &
 }
 _mission_init

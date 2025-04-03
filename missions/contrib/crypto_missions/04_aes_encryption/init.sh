@@ -18,7 +18,9 @@
 #
 # It typically looks like
 
-_mission_init() {
-    echo "Mission initialized!"
+_mission_init() {    
+    n=$((1 + $RANDOM % 100))
+    echo $n > "$GSH_HOME/Castle/Cave/challenge.txt"
+    echo $n > "$GSH_TMP/challenge.txt"
 }
 _mission_init

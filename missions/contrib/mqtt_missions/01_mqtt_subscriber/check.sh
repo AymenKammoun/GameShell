@@ -11,17 +11,9 @@
 # It typically looks like
 
 _mission_check() {
-    if [ ! -e "$GSH_HOME/Castle/Main_building/Library/My_Keys/private.pem" ]; then
-        echo "There is no private key at 'My_Keys' directory"
-        return 1
-    fi
-    if [ ! -e "$GSH_HOME/Castle/Main_building/Library/My_Keys/public.pem" ]; then
-        echo "There is no public key at 'My_Keys' directory"
-        return 1
-    fi
-
-    read -p "Who is the Spy? " userGuess
-    if [[ $userGuess == "Raphael" ]]; then
+    passPhrase=$(cat "$GSH_TMP/passphrase.txt")
+    read -p "Whats the passphrase " userGuess
+    if [[ $userGuess == $passPhrase ]]; then
         echo "Good job!"
         return 0
     else

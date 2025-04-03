@@ -1,10 +1,13 @@
 Mission goal
 ============
 
-Your friend King James send you a lettre. But unfortunately you have recieved more that one lettre supposedly from King James. 
-Your job is to sort the geniune lettre from the fake ones by verifying the signature using the public key of the king.
-In the Main Building of the Castle you can find a Mail Box that containes all the unsorted lettres, so you have to sort them in the fake or the geniune folder.
-Also, you can find King James's public key in the Librery in the Castle's Main Building. test
+Your friend, King James, has sent you a letter.
+However, you have received multiple letters, all claiming to be from King James.
+Your task is to identify the genuine letter by verifying the signature using the King's public key.
+In the Main Building of the Castle, you will find a Mailbox containing all the unsorted letters.
+Your mission is to sort them into either the Genuine or Fake folder based on their signature.
+
+You can find King James's public key in the Library, also located in the Castle's Main Building.
 
 Useful commands
 ==============

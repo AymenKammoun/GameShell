@@ -1,0 +1,12 @@
+Aes-128 => 16 bytes
+
+Key genearation :
+openssl rand -hex 16 > key.bin.hex
+
+Encrypt: 
+openssl enc -aes-128-cbc -in clear_text.txt -out cipher_text.bin -K $(cat key.bin.hex) -iv $(cat iv.bin.hex)
+
+openssl enc -aes-128-cbc -in challenge.txt -out ciphered_result.bin -K $(cat key.bin.hex) -iv $(cat iv.bin.hex)
+
+Decrypt:
+openssl enc -aes-128-cbc -d -in cipher_text.bin -out un_cipherd_text.txt -K $(cat key.bin.hex) -iv $(cat iv.bin.hex)

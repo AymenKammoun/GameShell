@@ -1,17 +1,20 @@
 Mission goal
 ============
 
-Your friend King James want to send you an encrypted letter.
-You have agreed to use RSA algorithm, for that you have to generate a paire of public/private keys.
-Then send your public key to King James so that he can reply back with the encrypted lettre.
-Finaly, decrypt the lettre using your private key.
+Your friend King James wants to send you an encrypted letter.
+You have agreed to use the RSA algorithm; for that, you have to generate a pair of public/private keys.
+Then send your public key to King James so that he can reply back with the encrypted letter.
+Finally, decrypt the letter using your private key.
+
+You have to first create a public/private key pair in the My_Keys in the Library (name them private.pem and public.pem)
+Then you have to send your public key using the command "sendPubKey"
+Decrypt the secret message
 
 Useful commands
 ==============
 
 openssl genrsa -out private.pem 4096
 openssl rsa -in private.pem -pubout -out public.pem
-
-openssl pkeyutl -encrypt -inkey public.pem -pubin -in top_secret.txt -out top_secret.enc
-openssl pkeyutl -decrypt -inkey private.pem -in top_secret.enc -out top_secret2.txt
+sendPubKey <path-to-public-key>
+openssl pkeyutl -decrypt -inkey <<path-to-private-key>> -in top_secret.enc -out top_secret2.txt
 
